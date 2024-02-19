@@ -1,25 +1,125 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-@import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
+.js-search-form {
+  width: 371px;
+  height: 40px;
+  display: flex;
+  gap: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin-left: auto;
 
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+
+  margin-right: auto;
+}
+
+.search-btn {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
+  border: none;
+  background: #4e75ff;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
   font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+.search-btn:hover {
+  background: #6c8cff;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+input {
+  width: 272px;
+  height: 40px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+;
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gallery {
+  margin-top: 32px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 1128px;
+  height: 200px;
+  margin-left: auto;
+
+
+  margin-right: auto;
+}
+
+.gallery-item {
+
+
+  max-width: 360px;
+  height: 200px;
+}
+
+.gallery-image {
+
+  width: 360px;
+  height: 152px;
+  object-fit: cover;
+}
+
+.gallery-link {
+  height: 152px;
+}
+
+.image-details {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  height: 48px;
+  display: flex;
+  max-width: 360px;
+  height: 48px;
+  left: 0;
+  right: 0;
+  padding-left: 20px;
+  margin-right: auto;
+
+
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 10px solid;
+  border-color: rgba(255, 255, 255, 0.15) rgba(255, 255, 255, 0.25) rgba(255, 255, 255, 0.35) rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
