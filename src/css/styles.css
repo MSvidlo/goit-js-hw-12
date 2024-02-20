@@ -123,3 +123,12 @@ ul {
     transform: rotate(360deg);
   }
 }
+
+
+.loadMoreList{
+display: flex;
+flex-direction: column;
+justify-content:end;
+align-items: flex-end;
+margin-bottom: auto;
+}

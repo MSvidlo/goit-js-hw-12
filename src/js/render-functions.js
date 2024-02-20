@@ -31,3 +31,4 @@ export default function itemTemplate(images,getImage) {
 
          getImage.innerHTML = `<ul class='gallery'>${markup}</ul>`
  };
+
