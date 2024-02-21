@@ -132,3 +132,8 @@ justify-content:end;
 align-items: flex-end;
 margin-bottom: auto;
 }
+
+.hidden {
+  display: none;
+  opacity: 0;
+}

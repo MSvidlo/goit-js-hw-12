@@ -1,7 +1,7 @@
 
 import axios from "axios";
  // HTTP request
-export default async function getPostsByUser(query, page = 1, perPage = 20) {
+export default async function getPostsByUser(query) {
     const BASE_URL = "https://pixabay.com";
     const END_POINT = '/api/';
     const API_KEY = '42305658-75508782eac06a666c1fb928b';
@@ -12,8 +12,8 @@ export default async function getPostsByUser(query, page = 1, perPage = 20) {
         orientation: 'horizontal',
         safesearch: 'true',
         q: query,
-        per_page: perPage,
-          page: page,
+        //  perPage: perPage ,
+        //  page: page
     
     };
 
