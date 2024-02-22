@@ -20,9 +20,14 @@
     </label>
     <button type="submit" class="search-btn">Search</button>
   </form>
-  <div class="loader"></div>
-  <ul class="gallery"></ul>
-  <button type="button" class="load-more" >Load more</button>
+     <ul class="gallery"></ul>
+  <div>
+    <button type="button" class="btn btn-primary button js-btn-load hidden" data-action="load-more">
+      <span class="label">Load more</span>
+    </button>
+  
+    <span class="js-loader spinner-border spinner-border-sm spinner hidden" role="status" aria-hidden="true"></span>
+  </div>
   <script src="./main.js" type="module">task1</script>
 </body>
 
