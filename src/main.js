@@ -30,18 +30,33 @@ async function onFormSubmit(e){
    e.preventDefault();
    query = e.target.elements.search.value.trim();
     page = 1;
-    showLoader();
+
      if (!query) {
-        showError('Sorry, there are no images matching your search query. Please try again!') 
+         showError('Sorry, there are no images matching your search query. Please try again!');
+         return;
     };  
-    
-    const data = await getPostsByUser(query, page);
+    showLoader();
+
+    try
+    {
+        const data = await getPostsByUser(query, page);
+    if (data.totalHits === 0) {
+           showError('There was a problem with the fetch operation. Please try again later.');
+         return;
+    }
     console.log(data);
 
     maxImage = Math.ceil(data.totalHits / 15);
     getImage.innerHTML = '';
     
-    renderImages(data.hits);
+        renderImages(data.hits);
+    } catch (error)
+    {
+        showError(error);
+        maxImage = 0;
+        getImage.innerHTML = '';
+            }
+   
     hideLoader();
     checkVisibleBtnStatus();
     e.target.reset()

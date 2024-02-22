@@ -168,7 +168,15 @@ margin-bottom: auto;
     width: 125px;
     height: 40px;
     background: #4e75ff;
-     
+      position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #007bff;
+        border: none;
+        
+        cursor: pointer;
+        font-size: 16px;
      
    
 }
