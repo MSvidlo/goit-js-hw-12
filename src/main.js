@@ -14,6 +14,7 @@ const searchForm = document.querySelector('.js-search-form');
 const getImage = document.querySelector(".gallery");
 const loader = document.querySelector('.js-loader');
 const loadMore = document.querySelector('.js-btn-load');
+const loadMessage = document.querySelector('.load-message');
  // Total number of hits returned by the backend
 
 
@@ -35,6 +36,7 @@ async function onFormSubmit(e){
          showError('Sorry, there are no images matching your search query. Please try again!');
          return;
     };  
+    loadMessage.classList.remove('hidden');
     showLoader();
 
     try
@@ -43,13 +45,14 @@ async function onFormSubmit(e){
     if (data.totalHits === 0) {
            showError('There was a problem with the fetch operation. Please try again later.');
          return;
-    }
-    console.log(data);
+    } 
+     
 
     maxImage = Math.ceil(data.totalHits / 15);
     getImage.innerHTML = '';
     
         renderImages(data.hits);
+        loadMessage.classList.add('hidden');
     } catch (error)
     {
         showError(error);
@@ -73,12 +76,20 @@ async function onLoadMoreClick() {
             position: 'topCenter'
         });
     };  
-
+loadMessage.classList.remove('hidden');
     showLoader();
     const data = await getPostsByUser(query,page);
    
     renderImages(data.hits);
+
     hideLoader();
+
+    const cardHeight = document.querySelector('.gallery-item').getBoundingClientRect().height;
+    window.scrollBy({
+        top: cardHeight * 2, // Прокручуємо на висоту двох карточок галереї
+        behavior: 'smooth' // Плавна анімація прокрутки
+    });
+    loadMessage.classList.add('hidden');
     checkVisibleBtnStatus();
    
 }
@@ -87,7 +98,10 @@ async function onLoadMoreClick() {
 //===============================================   
 function renderImages(hits) {
     const markup = itemsTamplate(hits);
-    getImage.insertAdjacentHTML('beforeend', markup)
+    getImage.insertAdjacentHTML('beforeend', markup);
+
+     const lightbox = new SimpleLightbox('.gallery a');
+    lightbox.refresh();
 };
 //==========================================
 
@@ -114,9 +128,16 @@ function hideLoader() {
 
 function checkVisibleBtnStatus()
 {
-    if (page>= maxImage){  hideLoadBtn();
+    if (page >= maxImage) {
+        hideLoadBtn();
+         iziToast.info({
+            title: 'Info',
+            message: "We're sorry, but you've reached the end of search results.",
+            position: 'topCenter'
+        });
     } else {
         showLoadBtn();
+       
     }
 
 };

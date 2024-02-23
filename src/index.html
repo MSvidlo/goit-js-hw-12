@@ -20,12 +20,18 @@
     </label>
     <button type="submit" class="search-btn">Search</button>
   </form>
-     <ul class="gallery"></ul>
-  <div>
+  <div class="load-message hidden" style="display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    margin-top: 32px;
+    
+">Loading images, please wait...</div>
+     <ul class="gallery gallery-container"></ul>
+  <div class="butn-load" >
     <button type="button" class="btn btn-primary button js-btn-load hidden" data-action="load-more">
       <span class="label">Load more</span>
     </button>
-  
     <span class="js-loader spinner-border spinner-border-sm spinner hidden" role="status" aria-hidden="true"></span>
   </div>
   <script src="./main.js" type="module">task1</script>
